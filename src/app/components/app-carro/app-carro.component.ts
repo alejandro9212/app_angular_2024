@@ -23,6 +23,9 @@ export class AppCarroComponent implements OnInit  {
   //variable para hacer el calculo del total cada vez que se elimine un carroi de compras
    total : number = 0;
 
+   //creamos una variable para ocultar el menu del carrito
+   showcar : boolean = false;
+
   //el constructor siempre lleva como parametro la clase del service
   constructor(private service: ProductService) {}
 
@@ -80,6 +83,10 @@ calculateTotal(): void{
 
 saveSession(): void {
   sessionStorage.setItem('cart',JSON.stringify(this.items));
+}
+
+openCart() :void {
+  this.showcar= !this.showcar;
 }
 
 
